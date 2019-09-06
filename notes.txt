@@ -1,0 +1,2 @@
+pc apache http://localhost/ci/home
+mac nginx http://local.paul.com/home
