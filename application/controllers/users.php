@@ -1,14 +1,29 @@
 <?php
 
-class Users  extends CI_Controller{
+class Users extends CI_Controller
+{
 
-    public function login(){
+    public function register()
+    {
+        $this->form_validation->set_rules('first_name', 'First Name', 'trim|required|min_length[3]');
+        $this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|min_length[3]');
+        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[users.email]');
+        $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]');
+        $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|min_length[3]|matches[password]');
+
+        $data['main_view'] = 'users/register_view';
+        $this->load->view('layouts/main',$data);
+    }
+
+    public function login()
+    {
         //echo $this->input->post('username');
         $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]');
         $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|min_length[3]|matches[password]');
 
-        if($this->form_validation->run() == FALSE){
+        if ($this->form_validation->run() == FALSE) {
             $data = array(
                 'error' => validation_errors()
             );
@@ -18,8 +33,8 @@ class Users  extends CI_Controller{
             $username = $this->input->post('username');
             $password = $this->input->post('password');
 
-            $user_id = $this->user_model->login_user($username,$password);
-            if($user_id){
+            $user_id = $this->user_model->login_user($username, $password);
+            if ($user_id) {
                 $user_data = array(
                     'user_id' => $user_id,
                     'username' => $username,
@@ -27,18 +42,19 @@ class Users  extends CI_Controller{
                 );
 
                 $this->session->set_userdata($user_data);
-                $this->session->set_flashdata('login_sucess','You are now logged in');
+                $this->session->set_flashdata('login_sucess', 'You are now logged in');
                 //redirect('home/index');
                 $data['main_view'] = "admin_view";
                 $this->load->view('layouts/main', $data);
             } else {
-                $this->session->set_flashdata('login_failed','You are NOT logged in');
+                $this->session->set_flashdata('login_failed', 'You are NOT logged in');
                 redirect('home/index');
             }
         }
     }
 
-    public function logout(){
+    public function logout()
+    {
         $this->session->sess_destroy();
         redirect('home/index');
     }
