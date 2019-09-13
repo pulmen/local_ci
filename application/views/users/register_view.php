@@ -9,9 +9,10 @@
     ?>
 
     <?php
-    if ($this->session->flashdata('error')):
-        echo $this->session->flashdata('error');
-    endif;
+//    if ($this->session->flashdata('error')):
+//        echo $this->session->flashdata('error');
+//    endif;
+        echo validation_errors('<p class="bg-danger">');
     ?>
 
     <?php echo form_open('users/register', $attributes); ?>
@@ -87,7 +88,7 @@
         $data = array(
             'class' => 'btn btn-primary',
             'name' => 'submit',
-            'value' => 'Login'
+            'value' => 'Register'
         );
         echo form_submit($data);
         ?>

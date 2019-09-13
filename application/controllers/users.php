@@ -12,8 +12,20 @@ class Users extends CI_Controller
         $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]');
         $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|min_length[3]|matches[password]');
 
-        $data['main_view'] = 'users/register_view';
-        $this->load->view('layouts/main',$data);
+        if($this->form_validation->run() == FALSE){
+            //redirect('http://google.com');
+            $data['main_view'] = 'users/register_view';
+            $this->load->view('layouts/main',$data);
+        } else {
+            if($this->user_model->create_user()) {
+                $this->session->set_flashdata('user_registered','User has been registered successfully.');
+                redirect('home/index');
+            } else {
+
+            }
+        }
+
+
     }
 
     public function login()

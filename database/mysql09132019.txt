@@ -1,0 +1,9 @@
+CREATE TABLE projects (
+    id int(11) NOT NULL AUTO_INCREMENT,
+    project_name varchar(255),
+    project_body TEXT,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO projects (project_name, project_body) VALUES ('PHP', 'This task involves coding a script that echos names');
+INSERT INTO projects (project_name, project_body) VALUES ('JAVASCRIPT', 'I need javascript to make applications behavior do nice things');

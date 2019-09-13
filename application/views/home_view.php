@@ -5,6 +5,12 @@
             echo $this->session->flashdata('login_sucess');
         endif;
     ?>
+    <?php
+    if($this->session->flashdata('user_registered')):
+        echo $this->session->flashdata('user_registered');
+    endif;
+    ?>
+
 </p>
 <p class="bg-danger">
     <?php
