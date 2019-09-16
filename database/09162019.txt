@@ -1,0 +1,4 @@
+ALTER TABLE projects ADD date_created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER project_body;
+ALTER TABLE projects ADD project_user_id int(11) AFTER id;
+
+UPDATE projects SET project_user_id = 5;

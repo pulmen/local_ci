@@ -28,7 +28,7 @@ if(gethostname() == 'DESKTOP-UU38NV9'){
     $config['base_url'] = 'http://localhost/ci';
     $config['sess_save_path'] = NULL;
 } else {
-    $config['base_url'] = 'http://local.paul.com/';
+    $config['base_url'] = 'http://local.paul.com';
     $config['sess_save_path'] = sys_get_temp_dir();
 }
 

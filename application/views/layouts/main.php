@@ -26,6 +26,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url(); ?>/users/register">Register</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url(); ?>/projects">Projects</a>
+            </li>
 <!--            <li class="nav-item dropdown">-->
 <!--                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
 <!--                    Dropdown-->
@@ -42,9 +45,13 @@
 <!--            </li>-->
         </ul>
         <ul class="navbar-nav">
+
+            <?php if($this->session->userdata('logged_in')): ?>
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url(); ?>/users/register">Logout</a>
+                <a class="nav-link" href="<?= base_url(); ?>/users/logout">Logout</a>
             </li>
+            <?php endif; ?>
+
         </ul>
 <!--        <form class="form-inline my-2 my-lg-0">-->
 <!--            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
