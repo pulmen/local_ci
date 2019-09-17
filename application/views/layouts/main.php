@@ -5,10 +5,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Project App</title>
     <script src="<?php echo base_url();?>assets/js/jquery.js"></script>
     <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
+    <link href="<?php echo base_url();?>open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
 </head>
 <body>
 
@@ -23,9 +24,11 @@
             <li class="nav-item active">
                 <a class="nav-link" href="<?= base_url(); ?>">Home <span class="sr-only">(current)</span></a>
             </li>
+            <?php if(!$this->session->userdata('logged_in')): ?>
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url(); ?>/users/register">Register</a>
             </li>
+            <?php endif; ?>
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url(); ?>/projects">Projects</a>
             </li>
