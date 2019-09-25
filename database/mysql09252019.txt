@@ -1,0 +1,10 @@
+CREATE TABLE tasks (
+    id int(11) NOT NULL AUTO_INCREMENT,
+    task_name varchar(255),
+    task_body TEXT,
+    PRIMARY KEY (id),
+    date_created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO tasks (task_name, task_body) VALUES ('take PHP Course 1', 'Take Edwin Diazs PHP course this week');
+INSERT INTO tasks (task_name, task_body) VALUES ('javascript course', 'Take javascript course');

@@ -9,6 +9,7 @@
     <script src="<?php echo base_url();?>assets/js/jquery.js"></script>
     <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/style.css">
     <link href="<?php echo base_url();?>open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
 </head>
 <body>
