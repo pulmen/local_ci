@@ -12,7 +12,7 @@
             Task Description
         </th>
         <th>
-
+            Date Created
         </th>
     </tr>
     </thead>
@@ -20,6 +20,7 @@
         <tr>
             <?php echo '<td>' . $task->task_name . '</td>'; ?>
             <?php echo '<td>' . $task->task_body . '</td>'; ?>
+            <?php echo '<td>' . $task->date_created . '</td>'; ?>
         </tr>
     </tbod>
 </table>
